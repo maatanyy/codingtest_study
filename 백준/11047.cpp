@@ -18,4 +18,7 @@ int main() {
 	}
 
 	cout << count;
+	
+	delete[] p;
+	return 0;
 }
