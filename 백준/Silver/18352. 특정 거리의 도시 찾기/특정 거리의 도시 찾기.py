@@ -1,39 +1,37 @@
 import sys
-import heapq
+from collections import deque
 
-INF = int(1e9)
-n, m, k, x = map(int, sys.stdin.readline().split())
+n, m, k, x = map(int,sys.stdin.readline().split())
 
-graph = [ [] for _ in range(n+1)]
-distance = [INF] * (n+1)
+# n: 도시, m:도로, k:거리정보, x:출발도시
+
+graph = [[] for _ in range(n+1)]
 
 for _ in range(m):
-    a, b = map(int, sys.stdin.readline().split())
-    graph[a].append((b, 1))
+    a, b = map(int,sys.stdin.readline().split())
+    graph[a].append(b)
 
-def dijkstra(start):
-    q = []
-    heapq.heappush(q, (0, start))
-    distance[start] = 0
 
-    while q:
-        dist, now = heapq.heappop(q)
-        if distance[now] < dist:
-            continue
+distance = [-1] *(n+1)
+distance[x] = 0
 
-        for i in graph[now]:
-            cost = dist + i[1]
-            if cost < distance[i[0]]:
-                distance[i[0]] = cost
-                heapq.heappush(q, (cost,i[0]))
+q = deque([x])
 
-dijkstra(x)
+while q:
+    now = q.popleft()
+
+    for nextloc in graph[now]:
+
+        if distance[nextloc]==-1:
+            distance[nextloc] = distance[now]+1
+            q.append(nextloc)
 
 check = False
-for i in range(1, n+1):
-    if distance[i] == k:
+
+for i in range(1,n+1):
+    if distance[i]==k:
         print(i)
-        check = True
+        check=True
 
 if check == False:
     print(-1)
