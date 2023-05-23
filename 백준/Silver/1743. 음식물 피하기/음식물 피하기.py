@@ -10,7 +10,8 @@ ny = [0,0,1,-1]
 
 for _ in range(k):
     a, b = map(int,sys.stdin.readline().split())
-    graph[a][b] = 1
+    graph[a][b]=1
+
 
 
 def bfs(x,y):
@@ -34,20 +35,11 @@ def bfs(x,y):
     return count
 
 val = -1
-for i in range(1, n+1):
-    for j in range(1, m+1):
+for i in range(1,n+1):
+    for j in range(1,m+1):
         if graph[i][j] == 1:
             val = max(val, bfs(i,j))
 
 print(val)
-
-
-
-
-
-
-
-
-
 
 
