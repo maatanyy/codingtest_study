@@ -21,6 +21,7 @@ for i in range(1,len(array)):
 
 print(array)
 
+# 퀵정렬
 def quick_sort(array):
     if len(array)<=1:
         return array
@@ -34,6 +35,19 @@ def quick_sort(array):
     return quick_sort(left) + [pivot] + quick_sort(right)
 
 print(quick_sort(array))
+
+
+# 계수정렬
+count = [0]*(max(array)+1)
+
+for i in range(len(array)):
+    count[array[i]] += 1
+
+for i in range(len(count)):
+    for t in range(count[i]):
+        print(i,end=' ')
+
+
 
 
 
