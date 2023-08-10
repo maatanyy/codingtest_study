@@ -1,27 +1,30 @@
+import sys
+
 num = int(input())
-pair = int(input())
-array = [[] for _ in range(num+1)]
-count = 0
+count = int(input())
+
+graph = [[] for _ in range(num+1)]
 visited = [False] * (num+1)
 
-for _ in range(pair):
-    x, y = map(int, input().split())
-
-    array[x].append(y)
-    array[y].append(x)
-
-def dfs(array, v, visited):
+ans = 0
+def dfs(graph, visited, v):
     visited[v] = True
 
-    for i in array[v]:
-        if not visited[i]:
-            dfs(array, i, visited)
+    for i in graph[v]:
+        if visited[i] == False:
+            dfs(graph, visited, i)
+            global ans
+            ans += 1
 
-dfs(array, 1, visited)
+for _ in range(count):
+    a, b = map(int,sys.stdin.readline().split())
 
-for i in visited:
-    if i == True:
-        count+=1
+    graph[a].append(b)
+    graph[b].append(a)
 
-print(count-1)  #처음 시작점 빼기
+dfs(graph,visited,1)
+print(ans)
+
+
+
 
