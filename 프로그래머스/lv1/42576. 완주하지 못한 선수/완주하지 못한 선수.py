@@ -1,21 +1,22 @@
 def solution(participant, completion):
-    # 참여한 선수 participant, 완주한 선수 completion
-    answer = ''
-
-    dic = {}
+    temp = dict()
+    answer = ""
 
     for i in participant:
-        if i not in dic:
-            dic[i]=1
+        if i not in temp:
+            temp[i] = 1
         else:
-            dic[i]+=1
+            temp[i] += 1
 
-    for i in completion:
-        dic[i]-=1
+    for j in completion:
+        if temp[j] == 0:
+            answer = j
+            return answer
+        else:
+            temp[j] -= 1
 
-    for i in dic.items():
-        a,b = i
-        if b !=0:
-            answer+=a
-
+    for k,v in temp.items():
+        if v !=0:
+            answer = k
+            break
     return answer
