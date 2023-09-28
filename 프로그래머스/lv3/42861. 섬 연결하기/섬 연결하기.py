@@ -1,36 +1,30 @@
-def find_parent(parent,x):
-    if parent[x]!=x:
-        return find_parent(parent,parent[x])
-    return parent[x]
+def find_parents(parent,x):
+    if parent[x] == x:
+        return x
+    return find_parents(parent,parent[x])
 
-def union_parent(parent,a,b):
-
-    a = find_parent(parent, a)
-    b = find_parent(parent, b)
-
+def union_parents(parent,a,b):
+    a = find_parents(parent,a)
+    b = find_parents(parent,b)
     if a<b:
-        parent[b] = a
-
+        parent[b]=a
     else:
-        parent[a] = b
-
-
-
+        parent[a]=b
+        
 def solution(n, costs):
-
-    parent = [i for i in range(n)]
     answer = 0
-    graph = []
-
-    costs.sort(key= lambda x:x[2])
-
-    for a,b,c in costs:
-        if find_parent(parent,a)!= find_parent(parent,b):
-            union_parent(parent,a,b)
-            answer+=c
-
+    
+    costs.sort(key=lambda x:x[2])
+    parent = [i for i in range(n)]
+    count = 0
+    
+    for i in costs:
+        if find_parents(parent,i[0]) != find_parents(parent,i[1]):
+            union_parents(parent,i[0],i[1])
+            answer+=i[2]
+            count+=1
+        
+        if count == n-1:
+            break
+        
     return answer
-
-n = 4
-costs = [[0,1,1],[0,2,2],[1,2,5],[1,3,1],[2,3,8]]
-print(solution(n,costs))
