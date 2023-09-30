@@ -1,28 +1,24 @@
 from collections import deque
-
 def solution(priorities, location):
-    queue = deque()
-
-    # queue에 집어 넣기
-    for i in range(len(priorities)):
-        if i != location:
-            queue.append((priorities[i],-1))
-        elif i==location:  #찾을라고 하는 것!
-            queue.append((priorities[i],-2))
-
     answer = 0
+    temp = deque()
 
-    while queue:
-        biggest, idx2 = max(queue)
-        num, idx = queue.popleft()
-        if num == biggest and idx ==-2:
-            answer+=1
-            break
+    for idx, val in enumerate(priorities):
+        temp.append([idx, val])
 
-        elif num==biggest and idx==-1:
-            answer+=1
+    while True:
+        a, b = temp.popleft()
+        val = 0
 
-        elif num < biggest:
-            queue.append((num, idx))
+        for c, d in temp:
+            if b < d:
+                val = -1
+                break
+        if val == -1:
+            temp.append([a, b])
 
-    return answer
+        else:
+            if a == location:
+                return answer + 1
+            elif a!=location:
+                answer += 1
