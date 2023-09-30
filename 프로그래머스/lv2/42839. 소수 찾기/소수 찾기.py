@@ -1,52 +1,46 @@
-from math import sqrt
 from itertools import permutations
 
-def is_print(number):
+def make(numbers):
+    number = int(''.join(numbers))
+    return number
 
-    temp = int(sqrt(number))
+def check(numbers):
 
-    if number==0:
-        return True
-
-    elif number==1:
-        return True
-
-    elif number==2:
+    if numbers==1 or numbers==0:
         return False
-
-    elif number==3:
-        return False
-    else:
-        for i in range(2,temp+1):
-            if number%i==0:
-                return True
-
-    return False
-
-
+    
+    if numbers ==2 or numbers==3:
+        return True
+    
+    for i in range(2,numbers):
+        if numbers%i==0:
+            return False
+        
+    return True
+                        
+            
+            
 def solution(numbers):
     answer = 0
-    values = []
-    temp = []
-    for i in numbers:
-        values.append(i)
-
-    for i in range(len(numbers)):
-        temp2 = list(permutations(values,i+1))
-        temp +=temp2
-
-    sum = []
-
-    for i in temp:
-        t=''
-        for j in range(len(i)):
-            t+= i[j]
-        sum.append(int(t))
-
-    sum = set(sum)
-
-    for i in sum:
-        if is_print(i)==False:
+    temp = [i for i in numbers]
+    length = len(numbers)
+    
+    temp2 = []
+    
+    for i in range(length):
+        temp2 += list(permutations(temp,i+1))
+    
+    vals = []
+    for i in temp2:
+        val = make(i)
+        vals.append(val)
+    
+    vals = list(set(vals))
+    
+    print(vals)
+    
+    for i in vals:
+        if check(i) == True:
             answer+=1
-
+    
     return answer
