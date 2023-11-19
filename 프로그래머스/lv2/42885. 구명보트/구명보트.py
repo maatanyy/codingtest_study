@@ -1,29 +1,21 @@
-from collections import deque
 def solution(people, limit):
-
     answer = 0
     people.sort(reverse=True)
-    queue = deque(people)
-
-    while queue:
-
-        if len(queue)==1:
+    
+    first = 0
+    last = len(people)-1
+    while first<last:
+        if people[first]==limit or people[first]+people[last]>limit:
             answer+=1
-            break
-
-        val = queue.popleft()
-
-        if val == limit:
-            answer+=1
+            first+=1
 
         else:
-            val2 = queue.pop()
-
-            if val+val2 >limit:
-                answer+=1
-                queue.append(val2)
-
-            else:
-                answer+=1
-
+            answer+=1
+            first+=1
+            last-=1
+        
+        if first == last:
+            answer+=1
+            break
+        
     return answer

@@ -1,37 +1,34 @@
+from collections import deque
 def solution(progresses, speeds):
-    temps = []
     answer = []
+    
     for i in range(len(progresses)):
-        for j in range(1, 100):
-            if progresses[i] + (speeds[i] * j) >= 100:
-                temps.append(j)
+        count = 1
+        while True:
+            total = progresses[i]+(speeds[i]*count)
+            if total>=100:
+                answer.append(count)
                 break
-
-    now = 0
-    n = len(progresses)
-    for i in range(1,n):
-        if temps[now]<temps[i]:
-            answer.append(i-now)
-            now = i
-    answer.append(n-now)
-    return answer
-
-progresses = [95, 90, 99, 99, 80, 99]
-speeds = [1, 1, 1, 1, 1, 1]
-print(solution(progresses, speeds))
-
-# [1, 3, 2]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            count+=1
+            
+    # [5,10,1,1,20,1]
+    
+    answer2 = []
+    i = 0
+    k = 0
+    count = 1
+    while True:
+        k+=1
+        if k == len(answer):
+            break
+            
+        if answer[i]<answer[k]:
+            answer2.append(count)
+            i = k
+            count = 1
+        else:
+            count+=1
+    
+    answer2.append(count)            
+        
+    return answer2
