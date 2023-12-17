@@ -1,37 +1,36 @@
 from collections import deque
-n, m = map(int, input().split())
 
-arr = []
+n, m = map(int,input().split())
 
-dx = [-1, 1, 0, 0]
-dy = [0, 0, 1, -1]
+graph = []
 
-def bfs(x,y):
-    queue = deque()
-    queue.append((x,y))
+for _ in range(n):
+    graph.append(list(map(int,input())))
 
+visited = [[False]* m for _ in range(n)]
+
+dx = [1,-1,0,0]
+dy = [0,0,1,-1]
+
+def bfs(x, y):
+    queue = deque([(x, y)])
+    visited[x][y] = True
+    
+    
     while queue:
         x, y = queue.popleft()
-
+        
         for i in range(4):
-            nx = x + dx[i]
-            ny = y + dy[i]
-
-            if nx <0 or nx>=n or ny<0 or ny>=m:
-                continue
-
-            if arr[nx][ny] ==0:
-                continue
-
-            if arr[nx][ny] ==1:
-                arr[nx][ny] = arr[x][y]+1
-                queue.append((nx,ny))
-
-    return arr[n-1][m-1]
+            newX = x+dx[i]
+            newY = y+dy[i]
+            
+            if 0<=newX <n and 0<=newY <m  and visited[newX][newY]==False and graph[newX][newY]==1:
+                graph[newX][newY]= graph[x][y]+1
+                visited[newX][newY] = True
+                queue.append((newX,newY))
+                
+    return graph[n-1][m-1]
+        
 
 
-for i in range(n):
-    arr.append(list(map(int,input())))
-
-print(bfs(0,0))
-
+print(bfs(0, 0))
