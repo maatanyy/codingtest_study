@@ -1,6 +1,6 @@
-# [level 2] 동물 수 구하기 - 59406 
+# [level Lv.2] 이름에 el이 들어가는 동물 찾기 - 59047 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59406) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59047) 
 
 ### 성능 요약
 
@@ -8,7 +8,7 @@
 
 ### 구분
 
-코딩테스트 연습 > SUM， MAX， MIN
+코딩테스트 연습 > String， Date
 
 ### 채점결과
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 1월 4일 0:32:30
+2024년 1월 5일 22:54:29
 
 ### 문제 설명
 
@@ -60,7 +60,7 @@ Empty
 </tr>
 </tbody>
       </table>
-<p>동물 보호소에 동물이 몇 마리 들어왔는지 조회하는 SQL 문을 작성해주세요. </p>
+<p>보호소에 돌아가신 할머니가 기르던 개를 찾는 사람이 찾아왔습니다. 이 사람이 말하길 할머니가 기르던 개는 이름에 'el'이 들어간다고 합니다. 동물 보호소에 들어온 동물 이름 중, 이름에 "EL"이 들어가는 개의 아이디와 이름을 조회하는 SQL문을 작성해주세요. 이때 결과는 이름 순으로 조회해주세요. 단, 이름의 대소문자는 구분하지 않습니다.</p>
 
 <h5>예시</h5>
 
@@ -76,52 +76,69 @@ Empty
 </tr>
 </thead>
         <tbody><tr>
-<td>A399552</td>
+<td>A355753</td>
 <td>Dog</td>
-<td>2013-10-14 15:38:00</td>
+<td>2015-09-10 13:14:00</td>
 <td>Normal</td>
-<td>Jack</td>
+<td>Elijah</td>
 <td>Neutered Male</td>
 </tr>
 <tr>
-<td>A379998</td>
+<td>A352872</td>
 <td>Dog</td>
-<td>2013-10-23 11:42:00</td>
+<td>2015-07-09 17:51:00</td>
+<td>Aged</td>
+<td>Peanutbutter</td>
+<td>Neutered Male</td>
+</tr>
+<tr>
+<td>A353259</td>
+<td>Dog</td>
+<td>2016-05-08 12:57:00</td>
+<td>Injured</td>
+<td>Bj</td>
+<td>Neutered Male</td>
+</tr>
+<tr>
+<td>A373219</td>
+<td>Cat</td>
+<td>2014-07-29 11:43:00</td>
 <td>Normal</td>
-<td>Disciple</td>
+<td>Ella</td>
+<td>Spayed Female</td>
+</tr>
+<tr>
+<td>A382192</td>
+<td>Dog</td>
+<td>2015-03-13 13:14:00</td>
+<td>Normal</td>
+<td>Maxwell 2</td>
 <td>Intact Male</td>
-</tr>
-<tr>
-<td>A370852</td>
-<td>Dog</td>
-<td>2013-11-03 15:04:00</td>
-<td>Normal</td>
-<td>Katie</td>
-<td>Spayed Female</td>
-</tr>
-<tr>
-<td>A403564</td>
-<td>Dog</td>
-<td>2013-11-18 17:03:00</td>
-<td>Normal</td>
-<td>Anna</td>
-<td>Spayed Female</td>
 </tr>
 </tbody>
       </table>
-<p>동물 보호소에 들어온 동물은 4마리입니다. 따라서 SQL문을 실행하면 다음과 같이 나와야 합니다.</p>
+<ul>
+<li>이름에 'el'이 들어가는 동물은 Elijah, Ella, Maxwell 2입니다.</li>
+<li>이 중, 개는 Elijah, Maxwell 2입니다.</li>
+</ul>
+
+<p>따라서 SQL문을 실행하면 다음과 같이 나와야 합니다. </p>
 <table class="table">
         <thead><tr>
-<th>count</th>
+<th>ANIMAL_ID</th>
+<th>NAME</th>
 </tr>
 </thead>
         <tbody><tr>
-<td>4</td>
+<td>A355753</td>
+<td>Elijah</td>
+</tr>
+<tr>
+<td>A382192</td>
+<td>Maxwell 2</td>
 </tr>
 </tbody>
       </table>
-<p>※ 컬럼 이름(위 예제에서는 count)은 일치하지 않아도 됩니다.</p>
-
 <hr>
 
 <p>본 문제는 <a href="https://www.kaggle.com/aaronschlegel/austin-animal-center-shelter-intakes-and-outcomes" target="_blank" rel="noopener">Kaggle의 "Austin Animal Center Shelter Intakes and Outcomes"</a>에서 제공하는 데이터를 사용하였으며 <a href="https://opendatacommons.org/licenses/odbl/1.0/" target="_blank" rel="noopener">ODbL</a>의 적용을 받습니다.</p>

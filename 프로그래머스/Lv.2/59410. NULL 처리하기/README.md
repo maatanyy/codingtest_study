@@ -1,6 +1,6 @@
-# [level 2] 동물 수 구하기 - 59406 
+# [level Lv.2] NULL 처리하기 - 59410 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59406) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59410) 
 
 ### 성능 요약
 
@@ -8,7 +8,7 @@
 
 ### 구분
 
-코딩테스트 연습 > SUM， MAX， MIN
+코딩테스트 연습 > IS NULL
 
 ### 채점결과
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 1월 4일 0:32:30
+2024년 1월 5일 17:42:15
 
 ### 문제 설명
 
@@ -60,7 +60,7 @@ Empty
 </tr>
 </tbody>
       </table>
-<p>동물 보호소에 동물이 몇 마리 들어왔는지 조회하는 SQL 문을 작성해주세요. </p>
+<p>입양 게시판에 동물 정보를 게시하려 합니다. 동물의 생물 종, 이름, 성별 및 중성화 여부를 아이디 순으로 조회하는 SQL문을 작성해주세요. 이때 프로그래밍을 모르는 사람들은 NULL이라는 기호를 모르기 때문에, 이름이 없는 동물의 이름은 "No name"으로 표시해 주세요.</p>
 
 <h5>예시</h5>
 
@@ -76,51 +76,57 @@ Empty
 </tr>
 </thead>
         <tbody><tr>
-<td>A399552</td>
-<td>Dog</td>
-<td>2013-10-14 15:38:00</td>
+<td>A350276</td>
+<td>Cat</td>
+<td>2017-08-13 13:50:00</td>
 <td>Normal</td>
-<td>Jack</td>
+<td>Jewel</td>
+<td>Spayed Female</td>
+</tr>
+<tr>
+<td>A350375</td>
+<td>Cat</td>
+<td>2017-03-06 15:01:00</td>
+<td>Normal</td>
+<td>Meo</td>
 <td>Neutered Male</td>
 </tr>
 <tr>
-<td>A379998</td>
+<td>A368930</td>
 <td>Dog</td>
-<td>2013-10-23 11:42:00</td>
+<td>2014-06-08 13:20:00</td>
 <td>Normal</td>
-<td>Disciple</td>
-<td>Intact Male</td>
-</tr>
-<tr>
-<td>A370852</td>
-<td>Dog</td>
-<td>2013-11-03 15:04:00</td>
-<td>Normal</td>
-<td>Katie</td>
-<td>Spayed Female</td>
-</tr>
-<tr>
-<td>A403564</td>
-<td>Dog</td>
-<td>2013-11-18 17:03:00</td>
-<td>Normal</td>
-<td>Anna</td>
+<td>NULL</td>
 <td>Spayed Female</td>
 </tr>
 </tbody>
       </table>
-<p>동물 보호소에 들어온 동물은 4마리입니다. 따라서 SQL문을 실행하면 다음과 같이 나와야 합니다.</p>
+<p>마지막 줄의 개는 이름이 없기 때문에, 이 개의 이름은 "No name"으로 표시합니다. 따라서 SQL문을 실행하면 다음과 같이 나와야 합니다. </p>
 <table class="table">
         <thead><tr>
-<th>count</th>
+<th>ANIMAL_TYPE</th>
+<th>NAME</th>
+<th>SEX_UPON_INTAKE</th>
 </tr>
 </thead>
         <tbody><tr>
-<td>4</td>
+<td>Cat</td>
+<td>Jewel</td>
+<td>Spayed Female</td>
+</tr>
+<tr>
+<td>Cat</td>
+<td>Meo</td>
+<td>Neutered Male</td>
+</tr>
+<tr>
+<td>Dog</td>
+<td>No name</td>
+<td>Spayed Female</td>
 </tr>
 </tbody>
       </table>
-<p>※ 컬럼 이름(위 예제에서는 count)은 일치하지 않아도 됩니다.</p>
+<p>※ 컬럼 이름은 일치하지 않아도 됩니다.</p>
 
 <hr>
 

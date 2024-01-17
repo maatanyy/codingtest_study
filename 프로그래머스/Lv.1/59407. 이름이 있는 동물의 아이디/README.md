@@ -1,6 +1,6 @@
-# [level 2] 동물 수 구하기 - 59406 
+# [level Lv.1] 이름이 있는 동물의 아이디 - 59407 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59406) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59407) 
 
 ### 성능 요약
 
@@ -8,7 +8,7 @@
 
 ### 구분
 
-코딩테스트 연습 > SUM， MAX， MIN
+코딩테스트 연습 > IS NULL
 
 ### 채점결과
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 1월 4일 0:32:30
+2024년 1월 5일 17:39:55
 
 ### 문제 설명
 
@@ -60,7 +60,7 @@ Empty
 </tr>
 </tbody>
       </table>
-<p>동물 보호소에 동물이 몇 마리 들어왔는지 조회하는 SQL 문을 작성해주세요. </p>
+<p>동물 보호소에 들어온 동물 중, 이름이 있는 동물의 ID를 조회하는 SQL 문을 작성해주세요. 단, ID는 오름차순 정렬되어야 합니다. </p>
 
 <h5>예시</h5>
 
@@ -76,52 +76,53 @@ Empty
 </tr>
 </thead>
         <tbody><tr>
-<td>A399552</td>
-<td>Dog</td>
-<td>2013-10-14 15:38:00</td>
+<td>A434523</td>
+<td>Cat</td>
+<td>2015-11-20 14:18:00</td>
 <td>Normal</td>
-<td>Jack</td>
+<td>NULL</td>
+<td>Spayed Female</td>
+</tr>
+<tr>
+<td>A562649</td>
+<td>Dog</td>
+<td>2014-03-20 18:06:00</td>
+<td>Sick</td>
+<td>NULL</td>
+<td>Spayed Female</td>
+</tr>
+<tr>
+<td>A524634</td>
+<td>Dog</td>
+<td>2015-01-02 18:54:00</td>
+<td>Normal</td>
+<td>*Belle</td>
+<td>Intact Female</td>
+</tr>
+<tr>
+<td>A465637</td>
+<td>Dog</td>
+<td>2017-06-04 08:17:00</td>
+<td>Injured</td>
+<td>*Commander</td>
 <td>Neutered Male</td>
-</tr>
-<tr>
-<td>A379998</td>
-<td>Dog</td>
-<td>2013-10-23 11:42:00</td>
-<td>Normal</td>
-<td>Disciple</td>
-<td>Intact Male</td>
-</tr>
-<tr>
-<td>A370852</td>
-<td>Dog</td>
-<td>2013-11-03 15:04:00</td>
-<td>Normal</td>
-<td>Katie</td>
-<td>Spayed Female</td>
-</tr>
-<tr>
-<td>A403564</td>
-<td>Dog</td>
-<td>2013-11-18 17:03:00</td>
-<td>Normal</td>
-<td>Anna</td>
-<td>Spayed Female</td>
 </tr>
 </tbody>
       </table>
-<p>동물 보호소에 들어온 동물은 4마리입니다. 따라서 SQL문을 실행하면 다음과 같이 나와야 합니다.</p>
+<p>이름이 있는 동물의 ID는 A524634와 A465637입니다. 따라서 SQL을 실행하면 다음과 같이 출력되어야 합니다.</p>
 <table class="table">
         <thead><tr>
-<th>count</th>
+<th>ANIMAL_ID</th>
 </tr>
 </thead>
         <tbody><tr>
-<td>4</td>
+<td>A465637</td>
+</tr>
+<tr>
+<td>A524634</td>
 </tr>
 </tbody>
       </table>
-<p>※ 컬럼 이름(위 예제에서는 count)은 일치하지 않아도 됩니다.</p>
-
 <hr>
 
 <p>본 문제는 <a href="https://www.kaggle.com/aaronschlegel/austin-animal-center-shelter-intakes-and-outcomes" target="_blank" rel="noopener">Kaggle의 "Austin Animal Center Shelter Intakes and Outcomes"</a>에서 제공하는 데이터를 사용하였으며 <a href="https://opendatacommons.org/licenses/odbl/1.0/" target="_blank" rel="noopener">ODbL</a>의 적용을 받습니다.</p>
