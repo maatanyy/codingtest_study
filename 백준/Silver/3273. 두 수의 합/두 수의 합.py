@@ -1,27 +1,30 @@
-import sys
-
-x = int(input())
+num = int(input())
 
 temp = list(map(int,input().split()))
 
 temp.sort()
 
-y = int(input())
 
-start= 0
+target = int(input())
+
+start = 0
 end = len(temp)-1
+
 count = 0
 
-while start<end:
-    if temp[start] + temp[end] < y:
-        start+=1
+while True:
 
-    elif temp[start] + temp[end]==y:
+    if start==end:
+        break
+
+    if temp[start] + temp[end] ==target:
         count+=1
         start+=1
 
+    elif temp[start] + temp[end] <target:
+        start+=1
 
-    elif temp[start] + temp[end] > y:
-        end = end-1
+    elif temp[start] + temp[end] > target:
+        end-=1
 
 print(count)
