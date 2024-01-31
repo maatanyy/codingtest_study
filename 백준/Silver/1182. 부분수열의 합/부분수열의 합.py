@@ -1,18 +1,20 @@
-import sys
 from itertools import combinations
 
-num, sumval = map(int,input().split())
+num, target = map(int,input().split())
 
-templist = list(map(int,input().split()))
+temp = list(map(int,input().split()))
 
-vals = []
+k = []
+
+for i in range(len(temp)):
+    tms = list(combinations(temp,i+1))
+
+    k+=tms
+
+
 count = 0
-
-for i in range(1,num+1):
-    vals += list(combinations(templist,i))
-
-for i in vals:
-    if sum(i)== sumval:
+for i in k:
+    if sum(i) == target:
         count+=1
 
 print(count)
